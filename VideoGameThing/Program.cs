@@ -11,6 +11,7 @@ namespace VideoGameThing
             var superVillain = new Baddie();
             int currentHealth = hero.HealthPoints;
             Title();
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("Press ENTER to continue");
             Console.ReadKey();
             Console.Clear();
@@ -20,6 +21,7 @@ namespace VideoGameThing
             bool running = true;
             while (running)
             {
+                villain.HealthPoints = 100;
                 Console.Clear();
                 Console.WriteLine("=== What Next Brave Wanderer? ===");
                 Console.WriteLine("m to move");
@@ -43,9 +45,13 @@ namespace VideoGameThing
                 {
                     hero.Movement = 5;
                     Console.WriteLine("An enemy approaches!");
+                    Console.ReadKey();
                     while (villain.HealthPoints > 0)
                     {
                         Console.Clear();
+                        Console.WriteLine($"Hero HP: {hero.HealthPoints}");
+                        Console.WriteLine($"Villain HP: {villain.HealthPoints}");
+                        Console.WriteLine("***************");
                         Console.WriteLine("a to attack");
                         Console.WriteLine("r to flee");
                         string choice = Console.ReadLine();
@@ -56,6 +62,7 @@ namespace VideoGameThing
                                 Console.ReadKey();
                                 break;
                             case "r":
+                                villain.HealthPoints = 0;
                                 Console.WriteLine("You got away safely.");
                                 Console.ReadKey();
                                 break;
