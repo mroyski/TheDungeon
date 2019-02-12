@@ -10,7 +10,6 @@ namespace VideoGameThing
 
         public Player()
         {
-            PlayerNumber = 1;
             Name = "Hero";
             HealthPoints = 100;
             AttackPower = 20;

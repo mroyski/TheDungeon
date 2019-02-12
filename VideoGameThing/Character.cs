@@ -4,7 +4,7 @@ using System.Text;
 
 namespace VideoGameThing
 {
-    public abstract class Character
+    public class Character
     {
         public string Name { get; set; }
         public int HealthPoints { get; set; }
@@ -15,7 +15,7 @@ namespace VideoGameThing
         {
             HealthPoints = 100;
         }
-        public void Attack(Character target, Character attacker)
+        public void Attack(Baddie target, Player attacker)
         {
             bool battle = true;
             do
@@ -51,9 +51,14 @@ namespace VideoGameThing
 
         public void Move()
         {
-            Random rnd = new Random();
-            //string[] direction = { "left", "right", "forward", "back" };
+            Movement += Movement;
             Console.WriteLine("{0} has moved {1} spaces!", Name, Movement);
+            if (Movement >= 30)
+            {
+                
+            }
         }
+
+
     }
 }
